@@ -1,0 +1,11 @@
+{
+    "APP_PATH": "/path/to/directory/",
+    "APP_NAME": ".apk",
+    "REMOTE": "http://localhost:4723/wd/hub",
+    "APP_ACTIVITY": "app.activity",
+    "DEVICE_NAME": "Device Name",
+    "PLATFORM_NAME": "Android",
+    "PLATFORM_VERSION": "6.0",
+    "APP_PACKAGE": "io.seedlabs.mesh.tool",
+    "APP_WAIT_ACTIVITY": "io.seedlabs.mesh.tool.MeshDeviceListActivity"
+}
