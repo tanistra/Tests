@@ -19,12 +19,19 @@ def _execute_command(cmd, *args):
 
 
 def _execute_subprocess(cmd):
+    """
+    Internal function execute command in subprocess
+    :param cmd: command
+    """
     subprocess.Popen(cmd,
                     stdout=subprocess.PIPE, stderr=subprocess.PIPE,
                     shell=True, preexec_fn=os.setsid)
 
 
 def _kill_subprocess():
+    """
+    kills executeted subprocess by KeyboardInterupt
+    """
     pid = os.getpid()
     try:
         os.kill(pid, signal.SIGINT)
@@ -61,7 +68,7 @@ def adb_uninstall(package, option = None):
         raise AssertionError(cmd_output)
 
 
-def logcat_android(log_level ='v', tags_list=''):
+def adb_logcat_android(log_level ='v', tags_list=''):
     """
     returns android logs to txt file in logs directory. Logs can be filtred by tags or by app package.
     :param tags_list: can be string in specific format: '"TAG1","TAG2","TAG3"'
@@ -90,7 +97,7 @@ def adb_shell_clear(package):
     _execute_command('adb shell pm clear ', package)
 
 
-def logcat_android_stop():
+def adb_logcat_android_stop():
     """
     Stops android adb logcat
     """
@@ -154,7 +161,10 @@ def adb_shell_screenrecord(file, **kwargs):
 
 
 def adb_shell_screenrecord_stop():
+    """
+    stop recording
+    """
     _kill_subprocess()
     adb_kill_server()
     adb_devices()
-    'INFO: Screen Recording stopped'
+    print('INFO: Screen Recording stopped')

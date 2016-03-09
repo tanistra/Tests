@@ -1,6 +1,7 @@
 from lib.appium_starter import start_appium, stop_appium
 # from lib.create_driver import create_driver
 from lib.create_driver import create_driver
+from lib.adb_commands import adb_shell_screenrecord, adb_shell_screenrecord_stop, adb_pull, adb_logcat_android
 
 def before_all(context):
     start_appium()
@@ -11,6 +12,8 @@ def before_feature(context, feature):
 
 #Scenario level objects are popped off context when scenario exits
 def before_scenario(context,scenario):
+
+    adb_shell_screenrecord('/sdcard/Download')
     print("Before scenario\n")
 
 def after_scenario(context,scenario):
