@@ -1,3 +1,9 @@
+import sys
+import os
+path = os.path.abspath(os.path.join(os.path.dirname(__file__), '../..'))
+print(path)
+if not path in sys.path:
+    sys.path.insert(1, path)
 from lib.appium_starter import start_appium, stop_appium
 # from lib.create_driver import create_driver
 from lib.create_driver import create_driver
